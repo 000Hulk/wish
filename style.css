@@ -1,0 +1,365 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(to right, #5c5288, #928dab);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Container */
+.container {
+  text-align: center;
+  padding: 20px;
+  min-height: 100vh;
+  position: relative;
+  background: white;
+  width: 100%;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Step Section */
+.step {
+  max-width: 300px;
+  margin: auto;
+  animation: fadeIn 1s ease-in-out;
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Quote */
+.quote {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2em;
+  color: #d94f7c;
+  margin-bottom: 20px;
+}
+
+/* Photo Styling */
+.photo {
+  width: 90%;
+  height: 350px;
+  max-width: 500px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+/* Message */
+.message {
+  font-size: 1.1em;
+  color: #333;
+  margin-bottom: 30px;
+  padding: 0 20px;
+}
+
+/* Button */
+.next-btn {
+  background: #d94f7c;
+  color: white;
+  font-size: 1em;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(217, 79, 124, 0.3);
+  transition: background 0.3s ease;
+  z-index: 2;
+  position: relative;
+}
+.next-btn:hover {
+  background: #b83f67;
+}
+
+/* Hidden Audio */
+audio {
+  display: none;
+}
+
+/* Circle Section */
+.circle-wrapper {
+  perspective: 1200px;
+  width: 450px;
+  height: 450px;
+  margin: 0 auto;
+  position: relative;
+}
+
+#circle {
+  width: 550px;
+  height: 350px;
+  position: relative;
+  transform-style: preserve-3d;
+  cursor: grab;
+  transition: transform 0.1s ease-out;
+  margin: 0 auto;
+}
+
+
+/* Cards */
+.card {
+  position: absolute;
+  width: 155px;
+  height: 230px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(217, 79, 124, 0.7);
+  overflow: hidden;
+  border: 2px solid #fff;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 12px;
+  font-size: 5px;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+  /* margin-bottom: 10px; */
+  pointer-events: none;
+}
+
+.card:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 30px rgba(217, 79, 124, 1);
+  z-index: 10;
+}
+
+/* Congrats Text */
+.congrats-text {
+  margin-top: 5px;
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.8em;
+  color: #d94f7c;
+  text-shadow: 0 0 10px #d94f7c;
+  user-select: none;
+  animation: fadeInUp 1.5s ease-in-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+/* Celebration */
+#celebration-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 999;
+}
+
+.emoji {
+  position: absolute;
+  font-size: 2rem;
+  animation: fall 5s linear infinite;
+  user-select: none;
+  opacity: 0.9;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(120vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+#congrats-text {
+  position: fixed;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.5rem;
+  color: #fff;
+  font-family: 'Great Vibes', cursive;
+  text-shadow: 0 0 10px #ff69b4, 0 0 20px #fff;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+/* Decorative Images */
+#img1, #img2 {
+  width: 80px;
+  position: absolute;
+  top: 20px;
+}
+
+#img1 {
+  right: 10px;
+}
+#img2 {
+  left: 10px;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .card {
+    width: 100px;
+    height: 150px;
+    font-size: 12px;
+  }
+
+  .card img {
+    height: 90px;
+  }
+
+  .circle-wrapper, #circle {
+    width: 100%;
+    height: 300px;
+  }
+
+  .congrats-text {
+    font-size: 2em;
+  }
+
+  .quote {
+    font-size: 1.5em;
+  }
+
+  #img1, #img2 {
+    width: 60px;
+  }
+
+  .message {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .next-btn {
+    padding: 10px 20px;
+    font-size: 0.9em;
+  }
+
+  .congrats-text {
+    font-size: 1.8em;
+  }
+}
+
+
+
+
+
+
+
+#celebration-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 999;
+}
+
+.emoji {
+  position: absolute;
+  font-size: 2rem;
+  animation: fall 5s linear infinite;
+  user-select: none;
+  opacity: 0.9;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(120vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+
+
+
+/* baby gif */
+
+#img3 {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40vw;
+  max-width: 300px;
+  z-index: 1001;
+  animation: bounceIn 1s ease forwards;
+}
+
+/* Animation for smooth entry */
+@keyframes bounceIn {
+  0% {
+    transform: translate(-50%, -60%) scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    transform: translate(-50%, -55%) scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* Responsive scaling for smaller devices */
+@media (max-width: 480px) {
+  #img3 {
+    width: 60vw;
+  }
+}
